@@ -1,0 +1,81 @@
+body{
+margin:0;
+font-family:Arial;
+height:100vh;
+background:linear-gradient(135deg,#ff416c,#ff4b2b,#36d1dc,#5b86e5);
+background-size:400% 400%;
+animation:bgmove 8s infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+@keyframes bgmove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.door-container{
+position:relative;
+width:100%;
+height:100%;
+}
+
+.door{
+position:absolute;
+width:50%;
+height:100%;
+background:#111;
+transition:2s;
+z-index:2;
+}
+
+.left{
+left:0;
+}
+
+.right{
+right:0;
+}
+
+.open .left{
+transform:translateX(-100%);
+}
+
+.open .right{
+transform:translateX(100%);
+}
+
+.login-box{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:40px;
+border-radius:10px;
+text-align:center;
+z-index:1;
+}
+
+input{
+padding:10px;
+margin:10px;
+width:200px;
+}
+
+button{
+background:#ff416c;
+color:white;
+border:none;
+padding:10px 20px;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff4b2b;
+}
