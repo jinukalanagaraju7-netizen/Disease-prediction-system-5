@@ -7,21 +7,22 @@
 
 <body>
 
-<div class="door-container">
-
+<div class="doors" id="doors">
 <div class="door left"></div>
 <div class="door right"></div>
+</div>
 
 <div class="login-box">
 
-<h1>🩺 Disease Prediction System</h1>
+<h1>🩺 Disease Prediction</h1>
+<p>AI Health Checker</p>
 
 <input type="text" id="username" placeholder="Username">
 <input type="password" id="password" placeholder="Password">
 
-<button onclick="openDoors()">Login</button>
+<button onclick="login()">Login</button>
 
-</div>
+<p id="error"></p>
 
 </div>
 
