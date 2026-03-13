@@ -3,18 +3,17 @@ margin:0;
 height:100vh;
 font-family:Arial;
 
-background:linear-gradient(-45deg,#ff6a00,#ee0979,#00f260,#0575e6,#ff9a9e);
+background:linear-gradient(-45deg,#ff6a00,#ee0979,#00f260,#0575e6);
 background-size:400% 400%;
-animation:bg 10s infinite;
+animation:bgmove 10s infinite;
 
 display:flex;
 justify-content:center;
 align-items:center;
-
 overflow:hidden;
 }
 
-@keyframes bg{
+@keyframes bgmove{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
@@ -24,7 +23,9 @@ overflow:hidden;
 position:absolute;
 width:100%;
 height:100%;
-z-index:5;
+top:0;
+left:0;
+z-index:10;
 }
 
 .door{
@@ -35,14 +36,19 @@ background:black;
 transition:2s;
 }
 
-.left{left:0;}
-.right{right:0;}
+.left{
+left:0;
+}
 
-.open .left{
+.right{
+right:0;
+}
+
+.doors.open .left{
 transform:translateX(-100%);
 }
 
-.open .right{
+.doors.open .right{
 transform:translateX(100%);
 }
 
@@ -51,6 +57,7 @@ background:white;
 padding:40px;
 border-radius:10px;
 text-align:center;
+z-index:1;
 }
 
 .register-box{
