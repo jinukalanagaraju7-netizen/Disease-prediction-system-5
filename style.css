@@ -1,27 +1,23 @@
 body{
-
 margin:0;
 height:100vh;
 font-family:Arial;
 
 background:linear-gradient(-45deg,#ff6a00,#ee0979,#00f260,#0575e6,#ff9a9e);
 background-size:400% 400%;
-animation:gradientMove 10s infinite;
+animation:bg 10s infinite;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
 overflow:hidden;
-
 }
 
-@keyframes gradientMove{
-
+@keyframes bg{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
-
 }
 
 .doors{
@@ -39,13 +35,8 @@ background:black;
 transition:2s;
 }
 
-.left{
-left:0;
-}
-
-.right{
-right:0;
-}
+.left{left:0;}
+.right{right:0;}
 
 .open .left{
 transform:translateX(-100%);
@@ -56,47 +47,31 @@ transform:translateX(100%);
 }
 
 .login-box{
-
 background:white;
 padding:40px;
-border-radius:12px;
+border-radius:10px;
 text-align:center;
-
-box-shadow:0 0 20px rgba(0,0,0,0.3);
-
 }
 
 .register-box{
-
 display:none;
 background:white;
 padding:30px;
 border-radius:10px;
 position:absolute;
-
 }
 
 input{
-
 padding:10px;
 margin:10px;
 width:200px;
-
 }
 
 button{
-
 padding:10px 20px;
 background:#ff416c;
 color:white;
 border:none;
 border-radius:5px;
 cursor:pointer;
-
-}
-
-button:hover{
-
-background:#ff4b2b;
-
 }
