@@ -15,14 +15,28 @@
 <div class="login-box">
 
 <h1>🩺 Disease Prediction</h1>
-<p>AI Health Checker</p>
 
-<input type="text" id="username" placeholder="Username">
-<input type="password" id="password" placeholder="Password">
+<input type="text" id="username" placeholder="Enter Username">
+<input type="password" id="password" placeholder="Enter Password">
 
 <button onclick="login()">Login</button>
 
+<p>New User?</p>
+
+<button onclick="showRegister()">Create Account</button>
+
 <p id="error"></p>
+
+</div>
+
+<div class="register-box" id="register">
+
+<h2>Create Account</h2>
+
+<input type="text" id="newuser" placeholder="Create Username">
+<input type="password" id="newpass" placeholder="Create Password">
+
+<button onclick="register()">Register</button>
 
 </div>
 
