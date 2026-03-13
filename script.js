@@ -1,9 +1,7 @@
 window.onload=function(){
 
 setTimeout(function(){
-
 document.getElementById("doors").classList.add("open");
-
 },1000);
 
 }
@@ -21,7 +19,7 @@ var pass=document.getElementById("newpass").value;
 
 if(user=="" || pass==""){
 
-alert("Please enter username and password");
+alert("Enter username and password");
 return;
 
 }
@@ -29,7 +27,7 @@ return;
 localStorage.setItem("username",user);
 localStorage.setItem("password",pass);
 
-alert("Account Created Successfully");
+alert("Account Created");
 
 }
 
@@ -43,15 +41,13 @@ var savedPass=localStorage.getItem("password");
 
 if(user===savedUser && pass===savedPass){
 
-alert("Login Successful");
-
 window.location="dashboard.html";
 
 }
 
 else{
 
-document.getElementById("error").innerHTML="Invalid Username or Password";
+document.getElementById("error").innerHTML="Invalid Login";
 
 }
 
