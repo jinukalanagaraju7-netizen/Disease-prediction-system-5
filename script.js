@@ -1,7 +1,9 @@
-window.onload=function(){
+window.onload = function(){
 
 setTimeout(function(){
+
 document.getElementById("doors").classList.add("open");
+
 },1000);
 
 }
@@ -16,13 +18,6 @@ function register(){
 
 var user=document.getElementById("newuser").value;
 var pass=document.getElementById("newpass").value;
-
-if(user=="" || pass==""){
-
-alert("Enter username and password");
-return;
-
-}
 
 localStorage.setItem("username",user);
 localStorage.setItem("password",pass);
@@ -44,7 +39,6 @@ if(user===savedUser && pass===savedPass){
 window.location="dashboard.html";
 
 }
-
 else{
 
 document.getElementById("error").innerHTML="Invalid Login";
