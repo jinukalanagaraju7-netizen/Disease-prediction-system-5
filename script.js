@@ -1,28 +1,64 @@
-function predictDisease() {
+function predictDisease(){
 
-let fever = document.querySelector("input[value='Fever']").checked;
-let cough = document.querySelector("input[value='Cough']").checked;
-let chestpain = document.querySelector("input[value='Chest Pain']").checked;
-let dryskin = document.querySelector("input[value='Dry Skin']").checked;
+let symptoms=document.querySelectorAll("input[type='checkbox']:checked");
+let count=symptoms.length;
 
-let result = "";
+let disease="";
+let medicine="";
 
-// Disease conditions
-if(fever && cough && chestpain){
-    result = "Flu / Viral Infection";
+if(count<2){
+
+disease="Please select minimum 2 symptoms";
+medicine="";
+
 }
-else if(cough && chestpain){
-    result = "Bronchitis";
-}
-else if(dryskin){
-    result = "Skin Allergy";
-}
-else if(fever && cough){
-    result = "Common Cold";
-}
+
 else{
-    result = "No disease detected";
+
+let fever=document.querySelector("input[value='Fever']").checked;
+let cough=document.querySelector("input[value='Cough']").checked;
+let headache=document.querySelector("input[value='Headache']").checked;
+let cold=document.querySelector("input[value='Cold']").checked;
+let chest=document.querySelector("input[value='Chest Pain']").checked;
+
+if(fever && cough){
+
+disease="Common Cold";
+medicine="Paracetamol, Cetirizine, Drink warm water";
+
 }
 
-document.getElementById("result").innerText = "Possible Disease: " + result;
+else if(fever && headache){
+
+disease="Viral Fever";
+medicine="Paracetamol, Rest, Drink fluids";
+
+}
+
+else if(cough && chest){
+
+disease="Bronchitis";
+medicine="Cough syrup, Steam inhalation";
+
+}
+
+else if(cold && cough){
+
+disease="Flu";
+medicine="Antiviral medicine, Rest";
+
+}
+
+else{
+
+disease="Possible infection";
+medicine="Consult doctor";
+
+}
+
+}
+
+document.getElementById("result").innerHTML=
+"🦠 Disease: "+disease+"<br>💊 Medicine: "+medicine;
+
 }
