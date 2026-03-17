@@ -1,21 +1,19 @@
-function showRegister(){
-document.getElementById("register").style.display="block";
-}
-
 function register(){
 
 var user=document.getElementById("newuser").value;
 var pass=document.getElementById("newpass").value;
 
 if(user=="" || pass==""){
-alert("Enter Username and Password");
+alert("Enter username and password");
 return;
 }
 
 localStorage.setItem("username",user);
 localStorage.setItem("password",pass);
 
-alert("Account Created Successfully");
+alert("Account Created");
+
+window.location="dashboard.html";
 
 }
 
@@ -29,11 +27,12 @@ var savedPass=localStorage.getItem("password");
 
 if(user===savedUser && pass===savedPass){
 
-window.location.href="dashboard.html";
+window.location="dashboard.html";
 
-}else{
+}
+else{
 
-alert("Invalid Username or Password");
+alert("Wrong Username or Password");
 
 }
 
