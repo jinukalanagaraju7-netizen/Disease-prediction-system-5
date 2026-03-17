@@ -1,49 +1,33 @@
 body{
-
-margin:0;
-font-family:Arial;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:linear-gradient(45deg,#ff0000,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff);
-background-size:400% 400%;
-animation:colors 10s infinite;
-}
-
-@keyframes colors{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
-}
-
-.login-box{
-
-background:white;
-padding:40px;
-border-radius:10px;
+font-family: Arial;
+background: linear-gradient(120deg,#74ebd5,#ACB6E5);
 text-align:center;
-
 }
 
-input{
-
-padding:10px;
-margin:5px;
-width:200px;
-
+.box{
+background:white;
+padding:30px;
+width:300px;
+margin:auto;
+margin-top:100px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
 }
 
 button{
-
-padding:10px 20px;
-background:#ff416c;
+background:#4CAF50;
 color:white;
+padding:10px 20px;
 border:none;
 border-radius:5px;
 cursor:pointer;
+}
 
+button:hover{
+background:#45a049;
+}
+
+#result{
+margin-top:20px;
+color:#333;
 }
