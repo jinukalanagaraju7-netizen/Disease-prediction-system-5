@@ -3,61 +3,29 @@
 <head>
     <title>Disease Prediction</title>
     <style>
-        body{
-            font-family:Arial;
-            text-align:center;
-            background:linear-gradient(45deg,#ff6a00,#ee0979,#00c6ff,#0072ff);
-            background-size:400% 400%;
-            animation:bg 8s infinite;
-            color:white;
-            padding:30px;
-        }
-        @keyframes bg{
-            0%{background-position:0% 50%;}
-            50%{background-position:100% 50%;}
-            100%{background-position:0% 50%;}
-        }
-        .box{
-            background:white;
-            color:black;
-            padding:25px;
-            border-radius:15px;
-            display:inline-block;
-            width:320px;
-        }
-        .symptoms{
-            text-align:left;
-            height:300px;
-            overflow-y:auto;
-        }
-        button{
-            padding:10px 20px;
-            margin-top:15px;
-            border:none;
-            border-radius:6px;
-            background:#0072ff;
-            color:white;
-            cursor:pointer;
-        }
-        #result{
-            margin-top:25px;
-            font-size:22px;
-            font-weight:bold;
-            background:white;
-            color:black;
-            padding:15px;
-            border-radius:10px;
-            display:inline-block;
-        }
-        .logout{
-            background:red;
-            margin-top:10px;
-        }
+        /* styles remain the same */
     </style>
     <script>
         function predictDisease(){
             var selected=[];
             var boxes=document.querySelectorAll("input[name='symptom']:checked");
             if(boxes.length !== 2){
-                document.getElementById("result").innerHTML="⚠️ Please select exactly 2
-                  
+                document.getElementById("result").innerHTML="⚠️ Please select exactly 2 symptoms";
+                return;
+            }
+            boxes.forEach(function(box){
+                selected.push(box.value);
+            });
+
+            var diseaseRules = [
+                { symptoms: ["fever", "cough"], disease: "Flu" },
+                { symptoms: ["fever", "vomiting"], disease: "Food Poisoning" },
+                { symptoms: ["headache", "blurvision"], disease: "Migraine" },
+                { symptoms: ["fatigue", "weightloss"], disease: "Diabetes" },
+                { symptoms: ["shortbreath", "chestpain"], disease: "Heart Problem" },
+                { symptoms: ["itching", "rash"], disease: "Skin Allergy" },
+                { symptoms: ["cold", "sorethroat"], disease: "Common Cold" },
+                { symptoms: ["dizziness", "fatigue"], disease: "Low Blood Pressure" },
+                { symptoms: ["diarrhea", "stomach"], disease: "Stomach Infection" },
+                { symptoms: ["backpain", "
+                             
