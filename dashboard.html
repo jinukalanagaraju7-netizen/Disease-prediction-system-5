@@ -1,31 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Disease Prediction</title>
-    <style>
-        /* styles remain the same */
-    </style>
-    <script>
-        function predictDisease(){
-            var selected=[];
-            var boxes=document.querySelectorAll("input[name='symptom']:checked");
-            if(boxes.length !== 2){
-                document.getElementById("result").innerHTML="⚠️ Please select exactly 2 symptoms";
-                return;
-            }
-            boxes.forEach(function(box){
-                selected.push(box.value);
-            });
+function predictDisease(){
 
-            var diseaseRules = [
-                { symptoms: ["fever", "cough"], disease: "Flu" },
-                { symptoms: ["fever", "vomiting"], disease: "Food Poisoning" },
-                { symptoms: ["headache", "blurvision"], disease: "Migraine" },
-                { symptoms: ["fatigue", "weightloss"], disease: "Diabetes" },
-                { symptoms: ["shortbreath", "chestpain"], disease: "Heart Problem" },
-                { symptoms: ["itching", "rash"], disease: "Skin Allergy" },
-                { symptoms: ["cold", "sorethroat"], disease: "Common Cold" },
-                { symptoms: ["dizziness", "fatigue"], disease: "Low Blood Pressure" },
-                { symptoms: ["diarrhea", "stomach"], disease: "Stomach Infection" },
-                { symptoms: ["backpain", "
-                             
+var selected=[];
+var boxes=document.querySelectorAll("input[name='symptom']:checked");
+
+boxes.forEach(function(box){
+selected.push(box.value);
+});
+
+/* Only show disease when at least 2 symptoms selected */
+if(selected.length < 2){
+document.getElementById("result").innerHTML="Select at least 2 symptoms";
+return;
+}
+
+var disease="No disease detected";
+
+if(selected.includes("fever") && selected.includes("cough"))
+disease="Flu";
+
+else if(selected.includes("fever") && selected.includes("vomiting"))
+disease="Food Poisoning";
+
+else if(selected.includes("headache") && selected.includes("blurvision"))
+disease="Migraine";
+
+else if(selected.includes("fatigue") && selected.includes("weightloss"))
+disease="Diabetes";
+
+else if(selected.includes("shortbreath") && selected.includes("chestpain"))
+disease="Heart Problem";
+
+else if(selected.includes("itching") && selected.includes("rash"))
+disease="Skin Allergy";
+
+else if(selected.includes("cold") && selected.includes("sorethroat"))
+disease="Common Cold";
+
+else if(selected.includes("dizziness") && selected.includes("fatigue"))
+disease="Low Blood Pressure";
+
+else if(selected.includes("diarrhea") && selected.includes("stomach"))
+disease="Stomach Infection";
+
+else if(selected.includes("backpain") && selected.includes("legpain"))
+disease="Muscle Pain";
+
+document.getElementById("result").innerHTML="🩺 Possible Disease: "+disease;
+
+}
