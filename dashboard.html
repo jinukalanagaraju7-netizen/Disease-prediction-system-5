@@ -1,89 +1,63 @@
-function predictDisease(){
-
-var selected=[];
-var boxes=document.querySelectorAll("input[name='symptom']:checked");
-
-boxes.forEach(function(box){
-selected.push(box.value);
-});
-
-if(selected.length < 3){
-document.getElementById("result").innerHTML="⚠ Select at least 3 symptoms";
-document.getElementById("result").style.background="orange";
-return;
-}
-
-var disease="No major disease detected";
-var probability="30%";
-var color="gray";
-
-if(selected.includes("fever") && selected.includes("cough")){
-disease="Flu";
-probability="80%";
-color="green";
-}
-
-else if(selected.includes("fever") && selected.includes("vomiting")){
-disease="Food Poisoning";
-probability="75%";
-color="green";
-}
-
-else if(selected.includes("headache") && selected.includes("blurvision")){
-disease="Migraine";
-probability="70%";
-color="green";
-}
-
-else if(selected.includes("fatigue") && selected.includes("weightloss")){
-disease="Diabetes";
-probability="85%";
-color="red";
-}
-
-else if(selected.includes("shortbreath") && selected.includes("chestpain")){
-disease="Heart Problem";
-probability="90%";
-color="red";
-}
-
-else if(selected.includes("itching") && selected.includes("rash")){
-disease="Skin Allergy";
-probability="70%";
-color="green";
-}
-
-else if(selected.includes("cold") && selected.includes("sorethroat")){
-disease="Common Cold";
-probability="65%";
-color="green";
-}
-
-else if(selected.includes("dizziness") && selected.includes("fatigue")){
-disease="Low Blood Pressure";
-probability="60%";
-color="green";
-}
-
-else if(selected.includes("diarrhea") && selected.includes("stomach")){
-disease="Stomach Infection";
-probability="75%";
-color="green";
-}
-
-else if(selected.includes("backpain") && selected.includes("legpain")){
-disease="Muscle Pain";
-probability="60%";
-color="green";
-}
-
-document.getElementById("result").innerHTML=
-"🧠 AI Analysis Result <br><br>" +
-"🩺 Possible Disease: <b>"+disease+"</b><br>" +
-"📊 Probability: <b>"+probability+"</b><br><br>" +
-"👨‍⚕ Suggestion: Please consult a doctor.";
-
-document.getElementById("result").style.background=color;
-document.getElementById("result").style.color="white";
-
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Prediction</title>
+    <style>
+        body{
+            font-family:Arial;
+            text-align:center;
+            background:linear-gradient(45deg,#ff6a00,#ee0979,#00c6ff,#0072ff);
+            background-size:400% 400%;
+            animation:bg 8s infinite;
+            color:white;
+            padding:30px;
+        }
+        @keyframes bg{
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
+        }
+        .box{
+            background:white;
+            color:black;
+            padding:25px;
+            border-radius:15px;
+            display:inline-block;
+            width:320px;
+        }
+        .symptoms{
+            text-align:left;
+            height:300px;
+            overflow-y:auto;
+        }
+        button{
+            padding:10px 20px;
+            margin-top:15px;
+            border:none;
+            border-radius:6px;
+            background:#0072ff;
+            color:white;
+            cursor:pointer;
+        }
+        #result{
+            margin-top:25px;
+            font-size:22px;
+            font-weight:bold;
+            background:white;
+            color:black;
+            padding:15px;
+            border-radius:10px;
+            display:inline-block;
+        }
+        .logout{
+            background:red;
+            margin-top:10px;
+        }
+    </style>
+    <script>
+        function predictDisease(){
+            var selected=[];
+            var boxes=document.querySelectorAll("input[name='symptom']:checked");
+            if(boxes.length !== 2){
+                document.getElementById("result").innerHTML="⚠️ Please select exactly 2
+                  
